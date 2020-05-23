@@ -45,7 +45,7 @@ let th_mark=request.body.th;
             return;
         }
         no_of_st=results[0].total;    
-    console.log("no_of_st "+no_of_st);//shall e try if that is wrkng first yes
+    console.log("no_of_st "+no_of_st);
 
     });
     connection.query('select count(*) as total from '+ table+' where Student not like \'NULL\' and Student not like \'00\'',[th_mark], function(error,results,fields) {
@@ -129,14 +129,14 @@ async function calc_prec(callback){
                 connection.query(' update '+tables+' set int_2=? where co='+(k+1),[percent[k]] ,function(error, results, fields) {
                 });
         }
-        }//now what? same in ext
+        }
         callback({});
     } 
 calc_qandco(function(result){});
   calc_coandmarks(function(result){});
    calc_prec(function(result){});
   
-    async function call_display(callback){//did ext have a problem? we executed before then it didnt 
+    async function call_display(callback){
         await new Promise(resolve => setTimeout(resolve, 1500));
         let sec;
         connection.query('select Section from courses where Name= ? and course=?',[uname,courses],function(error, results, fields) {
@@ -151,14 +151,12 @@ calc_qandco(function(result){});
         });
        
         connection.query('select * from '+ table+' where Student not like \'NULL\' order by Student', function(error, results, fields) {
-            let arr=[];//or a separate page for  cos meaning we will include somewhere no need of sep page
-            //where will we include?and do wehave to display that again? yes we will include in course.ejs
+            let arr=[];
             let i=0;
             if(error)
             {
                 console.log(error);
                 return ;
-                //execute now ok
             }
             while(i<results.length)
             {
