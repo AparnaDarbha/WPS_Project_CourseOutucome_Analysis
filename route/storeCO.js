@@ -8,10 +8,9 @@ var connection = mysql.createConnection({
 });
 var router=express.Router();
 router.post('/',function(request,response){
-    let course=request.session.courses;//is this crt? 
+    let course=request.session.courses;
     for(let i=0;i<5;i++){
-        let desc=`request.body.co`+i;////this? i dont know did we store this in session? no
-        //then why did u use session is wet hwis we will try running it ok
+        let desc=`request.body.co`+i;
     connection.query(' update  '+course+' set Description=? where CO='+i,[desc] ,function(error, results, fields) {});
     }
     
