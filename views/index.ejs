@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Home Page</title> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      <!--<table id='h>
+            <tr><td rowspan="8"><img src="http://www.vce.ac.in/img/vlogo.gif" height='100' width='100'/></td><td><h1>Vasavi College of Engineering</h1></td></tr>
+    </table>--><div style="display:inline-block;vertical-align:top;">
+      <img  src="http://www.vce.ac.in/img/vlogo.gif" alt="img" height='100' width='100'/>
+    </div>
+    <div style="display:inline-block;">
+        <div></div><br><br>
+        <div style="font-size: xx-large;"><b>Vasavi College of Engineering</b></div>
+    </div>
+    <h3 align="left"><b>Welcome <%=data.uname%></b></h3>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+              </div><!--we dont need home page yes we will try to put enter cos in psge 2 we will see that later
+            do we need signup? no will we copy paste this in every page or create css file we will try css file ok not wrkng
+          is this fine or will u see the first one again we will darken text color only then it will be good ok anything else? no-->
+              <ul class="nav navbar-nav">
+                <li><a>VCE</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <!--<li><a href="courses"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+                <li><a href="courses">Courses</a></li>
+                <li><a href="callexcel">Upload from excel</a></li>
+                <li><a href="/" ><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+              </ul>
+            </div>
+          </nav>
+</head>  
+<body align="center"> 
+        <br><br><br>
+    <form action="/cs" method="post"><!--maybe /route/cs dena or something like that-->
+    <b>Select course:</b>&nbsp;&nbsp;<select name="courses">
+            <% data.name.forEach((item)=>{%> 
+                <option><%=item%></option>  
+                <%});%>  
+    </select><br>   <br><br><br>
+    <input type="radio" name="Test" value="internal_1"/>Internal  1&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="Test" value="internal_2"/>Internal  2<br><br><br><br>
+    <input type="radio" name="Test" value="external"/>External&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="Test" value="assignments"/>Assignments<br><br><br><br>
+    <input type="radio" name="Test" value="quiz"/>Quiz<br><br><br><br>
+    <!--something happened my space bar stuck ohh is it fine now? yes-->
+    <!--whar will we do first i thougth we make a page in that we will ask course name and display student with 5 questions check boxes
+    he will check whichever question he wants to edit and in back end we will check which question is checked and for the other questions we will
+  consider 0 ok but total and all will chanfe even co will change we cannot consider 0. remaining we shd retrieve from
+db and call int_ss.js. it will calculate and display yes we will do then ok first ejs? yes-->
+    <!--Enter CO<input type="radio" name="co" value="1" />Yes
+    <input type="radio" name="co" value="2" />No
+    No we can have this radio button  if it is yes only them ww will read 
+    /os//ok display always? yes then we have to display with form where lecturers enter marks
+    //i think it is better to display in cs.js bvos we have diff ejs files from cs.js ok
+        i gave  script in this ofile itself but it opened a new page for cos ok 
+        try executimg it uw ill understanf what i did ok
+    -->
+    <input type="submit" id="btn" value="Next"/>
+
+</form>
+<!--<form action="./co.ejs">i dont think we can wdo this why? maybe bcos we need to store this like how we did in index.js
+maybe we have to do somethung like that ok
+<input type="submit" value="edit co"/> 
+</form>
+    <button onclick="disp_co.ejs">Display CO</button>-->
+</body> 
+  
+</html> 
