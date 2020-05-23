@@ -29,10 +29,7 @@ router.post('/',function(req,res){
         //await new Promise(resolve => setTimeout(resolve, 50));
             for(let j=0;j<=16;j++)
         {
-            //await new Promise(resolve => setTimeout(resolve, 50));
-      //   await new Promise(resolve => setTimeout(resolve, 100));//what happened? nothing
-      //any other modificaton? no maybe lets try then ok
-        console.log('req'+req.body['stu'+i+''+j]);//is it very slow? we will try reducing timer ok
+        console.log('req'+req.body['stu'+i+''+j]);
             if(req.body['stu'+i+''+j]=='')
             {
           //   await new Promise(resolve => setTimeout(resolve, 1000));
