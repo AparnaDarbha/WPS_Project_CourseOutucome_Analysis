@@ -18,13 +18,6 @@ router.get('/',function(request,response){
     let arrbr=new Array();
     let val2=new Array();
 
-    /*for(let i=0;i<=5;i++)
-    arr.push(request.body['course_outcomes'+i]);
-    console.log('arr'+arr);
-    connection.query(' update  '+table+' set Q1=? , Q2=? , Q3=?, Q4=?, Q5=? , Q6=? where Student like \'00\'',[arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]] ,function(error, results, fields) {
-   });
-    let val=new Array();*/
-
     console.log('val here'+request.session.val1);//we saved as valnot va;1
     let val=request.session.val1;
     let k=0;
@@ -37,14 +30,12 @@ router.get('/',function(request,response){
             eachsum+=parseInt(val[j]);
             connection.query(' update '+table+' set Q'+q+'=? where Student='+'0'+i,val[j],function(error, results, fields) {
             });
-            q++;//i think now it will be crct it added 1st mark of 2nd stu also with stu1 so his total was 70 b
-            //we need to answer only 5/7 questions in ext i think
-            // i gave wrong. 2*10=20+5*8=40 20+40=60 marks is our paper right? yes ok
+            q++;
         }
         console.log('each'+eachsum);
     connection.query(' update '+table+' set Total=? where Student='+'0'+i,[eachsum] ,function(error, results, fields) {
     });
-    k+=17;//k should be + 16? no 0 to 16=17 questions val[16] is for student 1 right yes val[17] is student 2's first q mark
+    k+=17;
 }
 let max_marks=[2,2,2,2,2,2,2,2,2,2,8,8,8,8,8,8,8];
 let no_of_st,tot_st;
@@ -60,11 +51,10 @@ let th_mark=request.body.th;
     });
     var n_co=[0,0,0,0,0];
     var qandco={};
-    var coandmarks=[0,0,0,0,0];//we will try again ? ok
+    var coandmarks=[0,0,0,0,0];
     var totalmarks=[0,0,0,0,0];
 async function calc_qandco(callback){
     for(let k=1;k<=17;k++)
-    //i'll be back in a min ok u keepdoing ok
     {
         let str='Q'+k;
         try{
@@ -80,13 +70,11 @@ async function calc_qandco(callback){
     qandco[str]=coindx;
     n_co[coindx-1]+=1;
     totalmarks[coindx-1]+=max_marks[k-1];
-    //coandmarks[coindx-1]=0;
         });
-     //   await new Promise(resolve => setTimeout(resolve, 200));
     }catch(e)
     {
         console.log('err');
-    }//each is nan yes
+    }
    
     }
     console.log("n_co"+n_co);
@@ -102,10 +90,9 @@ async function calc_coandmarks(callback){
         let coindx=qandco[str];
         coandmarks[coindx-1]+=results[0].s;
        console.log('coindx '+coindx+' total inside '+coandmarks[coindx-1]);
-    });//
+    });
   callback({});
     }
-   // await new Promise(resolve => setTimeout(resolve, 4000));
 }
 async function calc_prec(callback){
     await new Promise(resolve => setTimeout(resolve, 1500));
@@ -114,14 +101,6 @@ async function calc_prec(callback){
             console.log("comarks "+coandmarks[k]);
             if(n_co[k]!=0 && totalmarks[k]!=0)
             {
-             //i dont know what to do 
-             //in demo2 itself after reading we will sort marks? ok but how will we know the q nos?
-             //we will ask him how they consider marks whom?sir on monday?yes ok when can we implement then?
-             //on 24th only again yes ok we will show him excel thing on monday yes and documentation what
-        //     to add? entire code? maybe better to ask him ND THEN DO
-        //ANYEAY I'LL brng laptop on monday
-        //we will ask him and do it then ok 
-        //we didnt chk external excel/ 
                 percent[k]=(coandmarks[k]/(totalmarks[k]*tot_st))*100;
                 console.log('per'+percent[k]);
             }
