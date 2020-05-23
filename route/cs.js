@@ -21,7 +21,7 @@ router.post('/', function(request, response) {
     connection.query('select Student from '+ table+' where Student not like \'00\' and Student not like \'NULL\'', function(error, results, fields) {
         let arr=[];
         let i=0;
-        if(error)//w
+        if(error)
         {
             console.log(error);
             return ;
