@@ -27,12 +27,8 @@ router.post('/',function(req,res){
 }
         for(let i=1;i<=2;i++)
         {
-            //we need await ok
-           // await new Promise(resolve => setTimeout(resolve, 50));
                 for(let j=0;j<=11;j++)
             {
-                //await new Promise(resolve => setTimeout(resolve, 50));//do we need this await we will commnet and see ok
-          //   await new Promise(resolve => setTimeout(resolve, 100));//what happened? nothing
             console.log('req'+req.body['stu'+i+''+j]);
                 if(req.body['stu'+i+''+j]=='')
                 {
